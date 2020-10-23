@@ -1,0 +1,43 @@
+{{- if .Values.builds.enable }}
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: client-builder
+  labels:
+    app: client
+    app.kubernetes.io/name: client
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: client
+    app.openshift.io/runtime: nodejs
+    app.kubernetes.io/part-of: product-catalog
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'client-builder:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'nodejs:10-ubi7'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/gnunn-gitops/product-catalog-client'
+  triggers:
+    - type: GitHub
+      github:
+        secret: Y4GTPibJbOwq5yiMJyPg
+    - type: Generic
+      generic:
+        secret: uFLg4HmcdQ-13u-wEz2h
+    - type: ConfigChange
+    - type: ImageChange
+  runPolicy: Serial
+{{- end }}

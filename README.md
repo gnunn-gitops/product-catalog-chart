@@ -1,0 +1,1 @@
+Helm chart for product-catalog application

@@ -1,0 +1,16 @@
+{{- if .Values.builds.enable }}
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: client
+  labels:
+    app: client
+    app.kubernetes.io/name: client
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: client
+    app.openshift.io/runtime: nodejs
+    app.kubernetes.io/part-of: product-catalog
+spec:
+  lookupPolicy:
+    local: false
+{{- end }}

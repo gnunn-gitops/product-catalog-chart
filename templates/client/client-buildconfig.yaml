@@ -1,0 +1,68 @@
+{{- if .Values.builds.enable -}}
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: client
+  labels:
+    app: client
+    app.kubernetes.io/name: client
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: client
+    app.openshift.io/runtime: nodejs
+    app.kubernetes.io/part-of: product-catalog
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'client:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'nginx:latest'
+        namespace: openshift
+  postCommit: {}
+  source:
+    type: Dockerfile
+    dockerfile: >-
+      FROM
+      image-registry.openshift-image-registry.svc:5000/openshift/nginx:latest
+
+      COPY ./dist /opt/app-root/src
+
+      USER root
+
+      RUN chown -R default /opt/app-root/src
+
+      USER 1001
+
+      CMD /usr/libexec/s2i/run
+    images:
+      - from:
+          kind: ImageStreamTag
+          namespace: test
+          name: 'client-builder:latest'
+        paths:
+          - sourcePath: /opt/app-root/src/dist
+            destinationDir: .
+  triggers:
+    - type: GitHub
+      github:
+        secret: '-YvgxZnyAd7AGITsQCdi'
+    - type: Generic
+      generic:
+        secret: lTmeTK0UOwrj0FFG__L-
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          namespace: test
+          name: 'client-builder:latest'
+    - type: ConfigChange
+    - type: ImageChange
+  runPolicy: Serial
+{{- end }}

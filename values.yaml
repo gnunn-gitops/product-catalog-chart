@@ -1,0 +1,16 @@
+# Default values for product-catalog.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicas:
+  clientCount: 1
+  serverCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+routes:
+  subdomain: apps.home.ocplab.com
+
+builds:
+  enable: true
