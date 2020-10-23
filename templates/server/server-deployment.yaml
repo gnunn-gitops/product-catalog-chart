@@ -32,7 +32,7 @@ spec:
                 -Dquarkus.kubernetes-config.enabled=true
                 -Dquarkus.kubernetes-config.config-maps=server
             - name: CORS_ORIGIN
-              value: http://client-{{ .Release.Namespace }}.{{ .Values.routes.subdomain }}"
+              value: http://client-{{ .Release.Namespace }}.{{ .Values.routes.subdomain }}
           {{- if .Values.builds.enable }}
           image: image-registry.openshift-image-registry.svc:5000/{{ .Release.Namespace }}/server:latest
           {{- else }}
