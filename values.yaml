@@ -7,7 +7,15 @@ replicas:
   serverCount: 1
 
 routes:
-  subdomain: apps.home.ocplab.com
+  suffix: apps.home.ocplab.com
 
 builds:
   enable: true
+  server:
+    url: https://github.com/gnunn-gitops/product-catalog-server
+    revision: master
+    contextDir: /
+  client:
+    url: https://github.com/gnunn-gitops/product-catalog-client
+    revision: master
+    contextDir: /

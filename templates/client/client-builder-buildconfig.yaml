@@ -29,7 +29,9 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/gnunn-gitops/product-catalog-client'
+      uri: '{{ .Values.builds.client.url }}'
+      ref: {{ .Values.builds.client.revision }}
+  contextDir: {{ .Values.builds.client.contextDir }}
   triggers:
     - type: GitHub
       github:

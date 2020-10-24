@@ -10,6 +10,56 @@
                     "title": "Enable Builds",
                     "description": "Build images or use existing images",
                     "type": "boolean"
+                },
+                "client": {
+                    "title": "Client Git",
+                    "description": "Client git properties for build",
+                    "type": "object",
+                    "properties": {
+                        "contextDir": {
+                            "default": "/",
+                            "title": "Context Directory",
+                            "description": "Context directory in git",
+                            "type": "string"
+                        },
+                        "url": {
+                            "default": "https://github.com/gnunn-gitops/product-catalog-client",
+                            "title": "Git Repository URL",
+                            "description": "URL of the git repository",
+                            "type": "string"
+                        },
+                        "revision": {
+                            "default": "master",
+                            "title": "Git Revision",
+                            "description": "Revision in git",
+                            "type": "string"
+                        }
+                    }
+                },
+                "server": {
+                    "title": "Server Git",
+                    "description": "Server git properties for build",
+                    "type": "object",
+                    "properties": {
+                        "contextDir": {
+                            "default": "/",
+                            "title": "Context Directory",
+                            "description": "Context directory in git",
+                            "type": "string"
+                        },
+                        "url": {
+                            "default": "https://github.com/gnunn-gitops/product-catalog-server",
+                            "title": "Git Repository URL",
+                            "description": "URL of the git repository",
+                            "type": "string"
+                        },
+                        "revision": {
+                            "default": "master",
+                            "title": "Git Revision",
+                            "description": "Revision in git",
+                            "type": "string"
+                        }
+                    }
                 }
             }
         },
@@ -33,9 +83,9 @@
         "routes": {
             "type": "object",
             "properties": {
-                "subdomain": {
-                    "title": "Cluster Subdomain",
-                    "description": "Subdomain (wildcard) of cluster",
+                "suffix": {
+                    "title": "Cluster Suffix",
+                    "description": "Suffix (wildcard or subdomain) of cluster",
                     "type": "string",
                     "examples": [
                         "apps.home.ocplab.com",

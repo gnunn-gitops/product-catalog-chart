@@ -33,8 +33,10 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/gnunn-gitops/product-catalog-server'
-    contextDir: /
+    git:
+      uri: '{{ .Values.builds.server.url }}'
+      ref: {{ .Values.builds.server.revision }}
+  contextDir: {{ .Values.builds.server.contextDir }}
   triggers:
     - type: Generic
       generic:
