@@ -2,7 +2,7 @@ apiVersion: v1
 data:
   config.js: |
     window.ENV = {
-        "API_URL":"http://server-{{ .Release.Namespace }}.{{ .Values.routes.subdomain }}"
+        "API_URL":"http://server-{{ .Release.Namespace }}.{{ .Values.routes.suffix }}"
     }
 kind: ConfigMap
 metadata:
