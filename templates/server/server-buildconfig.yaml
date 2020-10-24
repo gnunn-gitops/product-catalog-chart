@@ -33,10 +33,9 @@ spec:
   source:
     type: Git
     git:
-    git:
       uri: '{{ .Values.builds.server.url }}'
       ref: {{ .Values.builds.server.revision }}
-  contextDir: {{ .Values.builds.server.contextDir }}
+    contextDir: {{ .Values.builds.server.contextDir }}
   triggers:
     - type: Generic
       generic:

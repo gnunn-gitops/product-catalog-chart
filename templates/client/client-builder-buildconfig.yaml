@@ -31,7 +31,7 @@ spec:
     git:
       uri: '{{ .Values.builds.client.url }}'
       ref: {{ .Values.builds.client.revision }}
-  contextDir: {{ .Values.builds.client.contextDir }}
+    contextDir: {{ .Values.builds.client.contextDir }}
   triggers:
     - type: GitHub
       github:
