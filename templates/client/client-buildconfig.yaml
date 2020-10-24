@@ -60,7 +60,6 @@ spec:
       imageChange:
         from:
           kind: ImageStreamTag
-          namespace: test
           name: 'client-builder:latest'
     - type: ConfigChange
     - type: ImageChange
