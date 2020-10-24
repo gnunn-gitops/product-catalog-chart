@@ -44,7 +44,6 @@ spec:
     images:
       - from:
           kind: ImageStreamTag
-          namespace: test
           name: 'client-builder:latest'
         paths:
           - sourcePath: /opt/app-root/src/dist

@@ -4,6 +4,7 @@ metadata:
   name: client
   annotations:
     app.openshift.io/connects-to: server
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"client:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"client\")].image"}]'
   labels:
     app: client
     app.kubernetes.io/name: client
