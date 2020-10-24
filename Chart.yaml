@@ -4,3 +4,4 @@ description: Deploys product catalog application into a namespace
 type: application
 version: 0.1.1
 appVersion: 1.0.0
+icon: https://gnunn-gitops.github.io/helm-charts/product-catalog/product-catalog.png

@@ -6,9 +6,6 @@ replicas:
   clientCount: 1
   serverCount: 1
 
-nameOverride: ""
-fullnameOverride: ""
-
 routes:
   subdomain: apps.home.ocplab.com
 

@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "builds": {
+            "type": "object",
+            "properties": {
+                "enable": {
+                    "default": "true",
+                    "title": "Enable Builds",
+                    "description": "Build images or use existing images",
+                    "type": "boolean"
+                }
+            }
+        },
+        "replicas": {
+            "type": "object",
+            "properties": {
+                "clientCount": {
+                    "default": 1,
+                    "title": "Client Replicas",
+                    "description": "Number of replicas for client deployment",
+                    "type": "integer"
+                },
+                "serverCount": {
+                    "default": 1,
+                    "title": "Server Replicas",
+                    "description": "Number of replicas for server deployment",
+                    "type": "integer"
+                }
+            }
+        },
+        "routes": {
+            "type": "object",
+            "properties": {
+                "subdomain": {
+                    "title": "Cluster Subdomain",
+                    "description": "Subdomain (wildcard) of cluster",
+                    "type": "string",
+                    "examples": [
+                        "apps.home.ocplab.com",
+                        "apps.cluster.myorg.com"
+                      ]
+                }
+            }
+        }
+    }
+}
