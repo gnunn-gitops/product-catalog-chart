@@ -6,9 +6,6 @@ replicas:
   clientCount: 1
   serverCount: 1
 
-routes:
-  suffix: apps.home.ocplab.com
-
 builds:
   enable: true
   server:

@@ -79,20 +79,6 @@
                     "type": "integer"
                 }
             }
-        },
-        "routes": {
-            "type": "object",
-            "properties": {
-                "suffix": {
-                    "title": "Cluster Suffix",
-                    "description": "Suffix (wildcard or subdomain) of cluster",
-                    "type": "string",
-                    "examples": [
-                        "apps.home.ocplab.com",
-                        "apps.cluster.myorg.com"
-                      ]
-                }
-            }
         }
     }
 }

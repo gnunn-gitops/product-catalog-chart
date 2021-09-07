@@ -28,12 +28,10 @@ spec:
       containers:
         - name: server
           env:
-            - name: JAVA_OPTIONS
-              value: >-
-                -Dquarkus.kubernetes-config.enabled=true
-                -Dquarkus.kubernetes-config.config-maps=server
-            - name: CORS_ORIGIN
-              value: http://client-{{ .Release.Namespace }}.{{ .Values.routes.suffix }}
+            - name: QUARKUS_KUBERNETES_CONFIG_ENABLED
+              value: "true"
+            - name: QUARKUS_KUBERNETES_CONFIG_CONFIG_MAPS
+              value: server
           {{- if .Values.builds.enable }}
           image: image-registry.openshift-image-registry.svc:5000/{{ .Release.Namespace }}/server:latest
           {{- else }}

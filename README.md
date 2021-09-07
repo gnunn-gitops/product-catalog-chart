@@ -26,3 +26,18 @@ spec:
     url: 'https://gnunn-gitops.github.io/helm-charts'
   name: Demo Helm Charts
 ```
+
+### Build and update chart
+
+To build and update the chart, after updating index.yaml, use the following commands:
+
+```helm package .```
+
+This will create a new binary package. Take this package and copy it into your helm repository (helm-charts) in my case and then run in the helm-charts:
+
+```helm repo index .```
+
+To update the index file. Finally add the files to git, commit and push.
+
+
+
