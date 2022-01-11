@@ -2,7 +2,7 @@ apiVersion: v2
 name: product-catalog
 description: Deploys product catalog application. The product catalog application is a 3-tier demo application for OpenShift with a React frontend, a Quarkus backend and a MariaDB database.
 type: application
-version: 0.1.5
+version: 0.1.6
 appVersion: 1.1.0
 icon: https://gnunn-gitops.github.io/helm-charts/product-catalog/product-catalog.png
 home: https://github.com/gnunn-gitops/product-catalog
